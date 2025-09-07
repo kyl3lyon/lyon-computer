@@ -4,7 +4,7 @@ Through the Hacking for Defense program at George Washington University, I teame
 
 We hit Cape Canaveral Space Force Station for a firsthand look: observed leadership meetings under Lt. Col. David Schill, shadowed flight surveillance, and brainstormed with sponsors Capt. Tory Robinson and Maj. Glen Pry. No prior space exposure meant everything felt raw and immediate, from the industry's national security backbone to chats with veterans dating back to the '70s, tracing its arc from history to future orbits. Space Force stood out against older branches, underscoring how this work not only scales assurance but bridges commerce and defense in an exploding sector.
 
-<img src="assets/images/media/kyle-lyon-patrick-space-force-base.jpg" width="500" />
-<img src="assets/images/media/gwu-team-cape-canaveral-launch-site.jpg" width="500" />
-<img src="assets/images/media/gwu-team-cape-canaveral-hangar.webp" width="500" />
-<img src="assets/images/media/gwu-team-cape-canaveral.jpg" width="500" />
+<img src="assets/images/media/kyle-lyon-patrick-space-force-base.jpg" style="max-width:100%; height:auto;" />
+<img src="assets/images/media/gwu-team-cape-canaveral-launch-site.jpg" style="max-width:100%; height:auto;" />
+<img src="assets/images/media/gwu-team-cape-canaveral-hangar.webp" style="max-width:100%; height:auto;" />
+<img src="assets/images/media/gwu-team-cape-canaveral.jpg" style="max-width:100%; height:auto;" />

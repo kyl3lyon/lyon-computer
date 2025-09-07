@@ -1,6 +1,6 @@
 ## Atmospheric Density-Based GeoFence Tracking System
 
-<img src="assets/images/notes/kyle-diu.webp" width="500" style="padding: 16px 0;" alt="Meeting with Liz McNally, Deputy Director of Commercial Operations at the Defense Innovation Unit" >
+<img src="assets/images/notes/kyle-diu.webp" style="padding: 16px 0; max-width:100%; height:auto;" alt="Meeting with Liz McNally, Deputy Director of Commercial Operations at the Defense Innovation Unit" />
 
 The global reliance on space-based assets is fundamental to modern life and national security. Military operations, from precision navigation and global communications to intelligence, surveillance, and reconnaissance (ISR), are inextricably linked to the capabilities provided by satellites. Civilian sectors, too, depend on space for everything from weather forecasting and financial transactions to agriculture and disaster relief. However, this critical domain is no longer a sanctuary. The operational landscape of space is now an active, contested environment. Nations are developing and deploying a spectrum of counterspace capabilities, including direct-ascent anti-satellite (ASAT) missiles, co-orbital threats, electronic warfare systems, and directed energy weapons. These developments create a precarious situation.
 
@@ -22,7 +22,7 @@ Competitive Endurance is thus a strategy of vigilance, resilience, and principle
 
 ### The SDA TAP Lab Operationalizes Competitive Endurance
 
-<img src="assets\images\notes\ssc_sdataplab.webp" alt="ssc_sdataplab" width="300" style="padding: 16px 0;"/>
+<img src="assets/images/notes/ssc_sdataplab.webp" alt="ssc_sdataplab" style="padding: 16px 0; max-width:100%; height:auto;" />
 
 [The SDA Tools, Applications, and Processing (SDA TAP)](tab:https://sdataplab.org/) Lab in Colorado Springs serves as a critical conduit for translating the strategic vision of Competitive Endurance into tangible, operator-focused software capabilities. The Lab's mission is to accelerate the delivery of advanced space battle management tools to the U.S. Space Force. It achieves this by deeply understanding operator needs through methodologies like **Kill Chain Decomposition (KCD)**. KCD analytically dissects potential adversary threat profiles, from the launch of an ASAT to the subtle maneuvering of a co-orbital inspector satellite into distinct phases. This allows the Lab to identify critical points where timely information or specific capabilities can disrupt the adversary's actions, thereby informing software development priorities that directly support the tenets of Competitive Endurance.
 
@@ -41,7 +41,7 @@ Sustaining space domain awareness in this environment is essential not just for 
 
 ### Dual Horizons Challenge Demands Fresh SDA Solutions
 
-<img src="assets\images\notes\dual_horizons.webp" width=500  style="padding: 16px 0;"/>
+<img src="assets/images/notes/dual_horizons.webp" style="padding: 16px 0; max-width:100%; height:auto;" />
 
 Recognizing the acute SDA challenges in the INDOPACOM AOR, the Defense Innovation Unit (DIU), an organization within the Department of Defense tasked with accelerating the adoption of commercial technology, partnered with USSPACEFOR-INDOPAC, the SDA TAP Lab, and India’s Innovations for Defence Excellence (iDEX) to launch the [Dual Horizons: U.S.-India Satellite Tracking Challenge](tab:https://nsin.mil/events/2025-01-09-us-india-satellite-tracking-challenge/). This bilateral initiative, part of the broader INDUS-X framework to vitalize U.S.-India defense industrial cooperation, specifically sought innovative algorithms to dynamically detect and track LEO satellites transiting the INDOPACOM AOR, particularly those that may have recently maneuvered or were employing CCDM.
 

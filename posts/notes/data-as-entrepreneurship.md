@@ -14,4 +14,4 @@ I closed with this: data science is entrepreneurship in disguise. The act of tur
 
 With data and tech racing forward, those who can straddle the line between scientific precision and leadership grit will shape what’s next. They’ll build not just businesses, but new ways of seeing.
 
-<img src="assets/images/notes/us-congress-kyle-lyon.png" alt="Kyle Lyon at US Congress" width="500" />
+<img src="assets/images/notes/us-congress-kyle-lyon.png" alt="Kyle Lyon at US Congress" style="max-width:100%; height:auto;" />

@@ -4,4 +4,4 @@ At the Defense TechConnect Innovation Summit, I presented a new tool for the U.S
 
 Using SpaceX’s issue tracking data, the tool applies Monotonic Gradient Boosting and target encoding to turn categorical data into risk-weighted numbers, guided by human-defined constraints for transparency and accuracy. Preprocessing includes additive smoothing to stabilize estimates, recursive feature elimination to select key variables, and synthetic minority oversampling to balance rare risk events, ensuring reliable predictions. The model achieves a 64% capture rate for major risks and a 0.96 ROC curve area, excelling despite a 9:1 class imbalance. It also uses fine-tuned large language models for sentiment analysis, adding context to textual data and blending human expertise with quantitative insights. Future work will refine anomaly detection and accelerate sentiment analysis to boost efficiency.
 
-<img src="assets\images\projects\lsp-analytics.webp" alt="" width=500 />
+<img src="assets/images/projects/lsp-analytics.webp" alt="" style="max-width:100%; height:auto;" />

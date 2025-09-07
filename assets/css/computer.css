@@ -295,6 +295,14 @@ img.splash {
     width: 100%;
 }
 
+/* Ensure images in markdown posts are responsive on all devices */
+#post-content img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
 .panel {
     padding-top: 1em;
     padding-bottom: 1em;
