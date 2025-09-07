@@ -2,12 +2,13 @@
   "use strict";
 
   const categories = ["notes", "projects", "studies", "media"];
+  const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
 
   async function fetchAllItems() {
     let allItems = [];
     for (const category of categories) {
       try {
-        const res = await fetch(`assets/data/${category}.json`, { cache: "no-store" });
+        const res = await fetch(`${BASEURL}/assets/data/${category}.json`, { cache: "no-store" });
         if (!res.ok) {
           console.error(`Failed to load data for ${category}`);
           continue; 
@@ -40,13 +41,14 @@
     let rowsHtml = "";
     for (const item of items) {
       const humanCategory = item.category.charAt(0).toUpperCase() + item.category.slice(1);
+      const href = item.href.startsWith("http") ? item.href : `${BASEURL}${item.href}`;
       rowsHtml += `
         <tr>
           <td>
             <time datetime="${item.date}">${item.date}</time>
           </td>
           <td>
-            <a href="${item.href}" title="${item.title}">${item.title}</a>
+            <a href="${href}" title="${item.title}">${item.title}</a>
           </td>
           <td class="hide-phone">${humanCategory}</td>
         </tr>

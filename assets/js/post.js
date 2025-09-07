@@ -14,13 +14,14 @@
     document.title = title;
     
     const breadcrumb = document.getElementById("breadcrumb");
+    const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
     if (breadcrumb) {
-      breadcrumb.innerHTML = `~ / <a class="link" href="/">Home</a> / <a class="link" href="/archive.html?type=${type}">${humanType}</a> / ${title}`;
+      breadcrumb.innerHTML = `~ / <a class="link" href="${BASEURL}/">Home</a> / <a class="link" href="${BASEURL}/archive.html?type=${type}">${humanType}</a> / ${title}`;
     }
 
     const backLink = document.getElementById("back-link");
     if (backLink) {
-      backLink.href = `/archive.html?type=${type}`;
+      backLink.href = `${BASEURL}/archive.html?type=${type}`;
       backLink.textContent = `← Back to ${humanType}`;
     }
 
@@ -37,7 +38,9 @@
     }
 
     try {
-      const res = await fetch(src, { cache: "no-store" });
+      const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+      const url = src.startsWith("http") ? src : `${BASEURL}${src}`;
+      const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) {
         throw new Error(`File not found: ${src}`);
       }

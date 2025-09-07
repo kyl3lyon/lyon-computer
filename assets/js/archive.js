@@ -25,7 +25,8 @@
   }
 
   async function loadData(type) {
-    const res = await fetch(`/assets/data/${type}.json`, { cache: "no-store" });
+    const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+    const res = await fetch(`${BASEURL}/assets/data/${type}.json`, { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to load data for ${type}`);
     return res.json();
   }
@@ -46,7 +47,8 @@
       tdTitle.className = "pv1 pr4 dtc";
       const a = document.createElement("a");
       a.className = "link";
-      a.href = item.href;
+      const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+      a.href = item.href && !item.href.startsWith("http") ? `${BASEURL}${item.href}` : item.href;
       a.title = item.title;
       a.textContent = item.title;
       tdTitle.appendChild(a);

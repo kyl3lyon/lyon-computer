@@ -1,7 +1,0 @@
-## Launch Service Provider Analytics
-
-At the Defense TechConnect Innovation Summit, I presented a new tool for the U.S. Space Force’s 5th and 2nd Space Launch Squadrons to assess National Security Space Launch risks. Combining machine learning and natural language processing, it automates risk evaluation for launch vehicle ground operations, supporting the Space Force’s Assured Access to Space mission. Born from costly 1990s launch failures (over $3 billion lost due to processing errors) this tool shifts from subjective risk models to data-driven precision, addressing rising workloads from providers like SpaceX, ULA, and Blue Origin without added manpower.
-
-Using SpaceX’s issue tracking data, the tool applies Monotonic Gradient Boosting and target encoding to turn categorical data into risk-weighted numbers, guided by human-defined constraints for transparency and accuracy. Preprocessing includes additive smoothing to stabilize estimates, recursive feature elimination to select key variables, and synthetic minority oversampling to balance rare risk events, ensuring reliable predictions. The model achieves a 64% capture rate for major risks and a 0.96 ROC curve area, excelling despite a 9:1 class imbalance. It also uses fine-tuned large language models for sentiment analysis, adding context to textual data and blending human expertise with quantitative insights. Future work will refine anomaly detection and accelerate sentiment analysis to boost efficiency.
-
-<img src="assets\images\projects\lsp-analytics.webp" alt="" width=500 />
