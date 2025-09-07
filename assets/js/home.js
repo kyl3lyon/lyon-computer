@@ -7,7 +7,7 @@
 
   async function loadItems(category) {
     try {
-      const res = await fetch(`${BASEURL}/assets/data/${category}.json`, { cache: "no-store" });
+      const res = await fetch(`${BASEURL}assets/data/${category}.json`, { cache: "no-store" });
       if (!res.ok) {
         console.error(`Failed to load data for ${category}`);
         return [];

@@ -26,7 +26,7 @@
 
   async function loadData(type) {
     const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
-    const res = await fetch(`${BASEURL}/assets/data/${type}.json`, { cache: "no-store" });
+    const res = await fetch(`${BASEURL}assets/data/${type}.json`, { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to load data for ${type}`);
     return res.json();
   }

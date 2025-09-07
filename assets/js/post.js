@@ -39,7 +39,7 @@
 
     try {
       const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
-      const url = src.startsWith("http") ? src : `${BASEURL}${src}`;
+      const url = src.startsWith("http") ? src : `${BASEURL}${src.startsWith('/') ? src.slice(1) : src}`;
       const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) {
         throw new Error(`File not found: ${src}`);
