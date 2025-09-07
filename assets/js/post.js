@@ -5,7 +5,7 @@
     const params = new URLSearchParams(window.location.search);
     let src = params.get("src");
     let type = params.get("type") || "notes";
-    const slug = params.get("slug");
+    let slug = params.get("slug");
     if (!src && slug) {
       src = `posts/${type}/${slug}.md`;
     }
@@ -22,10 +22,20 @@
         const slugFromPath = (segments[2] || "").replace(/\/?index\.html?$/i, "").replace(/\/$/, "");
         if (slugFromPath) {
           src = `posts/${type}/${slugFromPath}.md`;
+          slug = slugFromPath;
         }
+      } else if (["notes","projects","studies","media"].includes(segments[0]) && segments[1]) {
+        type = segments[0];
+        const slugFromPath = (segments[1] || "").replace(/\/?index\.html?$/i, "").replace(/\/$/, "");
+        src = `posts/${type}/${slugFromPath}.md`;
+        slug = slugFromPath;
       }
     }
-    return { src, type };
+    if (!slug && src) {
+      const s = src.split("/").pop() || "";
+      slug = s.replace(/\.md$/i, "");
+    }
+    return { src, type, slug };
   }
 
   function updateChrome(type, interimTitle = "Post") {
@@ -34,13 +44,14 @@
 
     const breadcrumb = document.getElementById("breadcrumb");
     const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+    const ROOT = BASEURL ? (BASEURL.endsWith("/") ? BASEURL : BASEURL + "/") : "/";
     if (breadcrumb) {
-      breadcrumb.innerHTML = `~ / <a class="link" href="${BASEURL}">Home</a> / <a class="link" href="${BASEURL}archive.html?type=${type}">${humanType}</a> / ${interimTitle}`;
+      breadcrumb.innerHTML = `~ / <a class="link" href="${ROOT}">Home</a> / <a class="link" href="${ROOT}archive.html?type=${type}">${humanType}</a> / ${interimTitle}`;
     }
 
     const backLink = document.getElementById("back-link");
     if (backLink) {
-      backLink.href = `${BASEURL}archive.html?type=${type}`;
+      backLink.href = `${ROOT}archive.html?type=${type}`;
       backLink.textContent = `← Back to ${humanType}`;
     }
 
@@ -49,6 +60,16 @@
 
   function applyFinalTitle(type, finalTitle) {
     updateChrome(type, finalTitle);
+  }
+
+  function updatePrettyUrl(type, slug) {
+    if (!slug) return;
+    const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+    const ROOT = BASEURL ? (BASEURL.endsWith("/") ? BASEURL : BASEURL + "/") : "/";
+    const pretty = `${ROOT}${type}/${slug}`;
+    try {
+      history.replaceState(null, "", pretty);
+    } catch (_) {}
   }
 
   async function loadAndRenderMarkdown(src, type) {
@@ -81,9 +102,10 @@
   }
 
   async function init() {
-    const { src, type } = parseParams();
+    const { src, type, slug } = parseParams();
     updateChrome(type, "Loading…");
     await loadAndRenderMarkdown(src, type);
+    updatePrettyUrl(type, slug);
   }
 
   if (document.readyState === "loading") {
