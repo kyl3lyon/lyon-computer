@@ -5,18 +5,17 @@
     const params = new URLSearchParams(window.location.search);
     const src = params.get("src");
     const type = params.get("type") || "notes";
-    const title = params.get("title") || "Post";
-    return { src, type, title };
+    return { src, type };
   }
 
-  function updateChrome(type, title) {
+  function updateChrome(type, interimTitle = "Post") {
     const humanType = type.charAt(0).toUpperCase() + type.slice(1);
-    document.title = title;
-    
+    document.title = interimTitle;
+
     const breadcrumb = document.getElementById("breadcrumb");
     const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
     if (breadcrumb) {
-      breadcrumb.innerHTML = `~ / <a class="link" href="${BASEURL}/">Home</a> / <a class="link" href="${BASEURL}/archive.html?type=${type}">${humanType}</a> / ${title}`;
+      breadcrumb.innerHTML = `~ / <a class="link" href="${BASEURL}/">Home</a> / <a class="link" href="${BASEURL}/archive.html?type=${type}">${humanType}</a> / ${interimTitle}`;
     }
 
     const backLink = document.getElementById("back-link");
@@ -28,7 +27,11 @@
     document.body.classList.add(`tag-${type}`);
   }
 
-  async function loadAndRenderMarkdown(src) {
+  function applyFinalTitle(type, finalTitle) {
+    updateChrome(type, finalTitle);
+  }
+
+  async function loadAndRenderMarkdown(src, type) {
     const contentDiv = document.getElementById("post-content");
     if (!contentDiv) return;
 
@@ -45,6 +48,10 @@
         throw new Error(`File not found: ${src}`);
       }
       const markdown = await res.text();
+      // Determine title from first H1 heading if present
+      const match = markdown.match(/^#\s+(.+)$/m);
+      const derivedTitle = match ? match[1].trim() : "Post";
+      applyFinalTitle(type, derivedTitle);
       // Use marked.parse() which is the new method for marked v4+
       contentDiv.innerHTML = marked.parse(markdown);
     } catch (err) {
@@ -54,9 +61,9 @@
   }
 
   async function init() {
-    const { src, type, title } = parseParams();
-    updateChrome(type, title);
-    await loadAndRenderMarkdown(src);
+    const { src, type } = parseParams();
+    updateChrome(type, "Loading…");
+    await loadAndRenderMarkdown(src, type);
   }
 
   if (document.readyState === "loading") {

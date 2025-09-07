@@ -1,6 +1,6 @@
 {
   "items": [
-    { "date": "2023-06-30", "title": "United Nations Speech", "href": "post.html?src=posts/media/united-nations-speech.md&type=media&title=United Nations Speech" },
-    { "date": "2022-08-19", "title": "To SpaceX and Beyond", "href": "post.html?src=posts/media/to-spacex-and-beyond.md&type=media&title=To SpaceX and Beyond" }
+    { "date": "2023-06-30", "title": "United Nations Speech", "href": "post.html?src=posts/media/united-nations-speech.md&type=media" },
+    { "date": "2022-08-19", "title": "To SpaceX and Beyond", "href": "post.html?src=posts/media/to-spacex-and-beyond.md&type=media" }
   ]
 }

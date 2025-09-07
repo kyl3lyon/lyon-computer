@@ -1,7 +1,7 @@
 {
   "items": [
-    { "date": "2025-07-19", "title": "Ionospheric Plasma Anomaly Tracking", "href": "post.html?src=posts/projects/ionospheric-plasma-anomaly-tracking.md&type=projects&title=Ionospheric Plasma Anomaly Tracking" },
-    { "date": "2024-12-01", "title": "Launch Commit Weather Classification", "href": "post.html?src=posts/projects/launch-commit-weather-classification.md&type=projects&title=Launch Commit Weather Classification" },
-    { "date": "2023-11-23", "title": "Launch Service Provider Analytics", "href": "post.html?src=posts/projects/launch-service-provider-analytics.md&type=projects&title=Launch Service Provider Analytics" }
+    { "date": "2025-07-19", "title": "Ionospheric Plasma Anomaly Tracking", "href": "post.html?src=posts/projects/ionospheric-plasma-anomaly-tracking.md&type=projects" },
+    { "date": "2024-12-01", "title": "Launch Commit Weather Classification", "href": "post.html?src=posts/projects/launch-commit-weather-classification.md&type=projects" },
+    { "date": "2023-11-23", "title": "Launch Service Provider Analytics", "href": "post.html?src=posts/projects/launch-service-provider-analytics.md&type=projects" }
   ]
 }
