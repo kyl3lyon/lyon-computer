@@ -3,8 +3,28 @@
 
   function parseParams() {
     const params = new URLSearchParams(window.location.search);
-    const src = params.get("src");
-    const type = params.get("type") || "notes";
+    let src = params.get("src");
+    let type = params.get("type") || "notes";
+    const slug = params.get("slug");
+    if (!src && slug) {
+      src = `posts/${type}/${slug}.md`;
+    }
+
+    // Fallback to path-based parsing if neither src nor slug param is present
+    if (!src) {
+      const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+      let path = window.location.pathname || "";
+      if (BASEURL && path.startsWith(BASEURL)) path = path.slice(BASEURL.length);
+      path = path.replace(/^\/+/, "");
+      const segments = path.split("/");
+      if (segments[0] === "p" && segments.length >= 3) {
+        type = segments[1] || type;
+        const slugFromPath = (segments[2] || "").replace(/\/?index\.html?$/i, "").replace(/\/$/, "");
+        if (slugFromPath) {
+          src = `posts/${type}/${slugFromPath}.md`;
+        }
+      }
+    }
     return { src, type };
   }
 
@@ -15,12 +35,12 @@
     const breadcrumb = document.getElementById("breadcrumb");
     const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
     if (breadcrumb) {
-      breadcrumb.innerHTML = `~ / <a class="link" href="${BASEURL}/">Home</a> / <a class="link" href="${BASEURL}/archive.html?type=${type}">${humanType}</a> / ${interimTitle}`;
+      breadcrumb.innerHTML = `~ / <a class="link" href="${BASEURL}">Home</a> / <a class="link" href="${BASEURL}archive.html?type=${type}">${humanType}</a> / ${interimTitle}`;
     }
 
     const backLink = document.getElementById("back-link");
     if (backLink) {
-      backLink.href = `${BASEURL}/archive.html?type=${type}`;
+      backLink.href = `${BASEURL}archive.html?type=${type}`;
       backLink.textContent = `← Back to ${humanType}`;
     }
 
@@ -48,8 +68,8 @@
         throw new Error(`File not found: ${src}`);
       }
       const markdown = await res.text();
-      // Determine title from first H1 heading if present
-      const match = markdown.match(/^#\s+(.+)$/m);
+      // Determine title from the first ATX-style heading (any level)
+      const match = markdown.match(/^\s{0,3}#{1,6}\s+(.+)$/m);
       const derivedTitle = match ? match[1].trim() : "Post";
       applyFinalTitle(type, derivedTitle);
       // Use marked.parse() which is the new method for marked v4+

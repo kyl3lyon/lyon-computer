@@ -1,6 +1,6 @@
 {
   "items": [
-    { "date": "2025-05-15", "title": "Atmospheric Density-Based Geofence Tracking System", "href": "post.html?src=posts/notes/atmospheric-density-based-geofence-tracking-system.md&type=notes" },
-    { "date": "2022-06-13", "title": "Data as Entrepreneurship", "href": "post.html?src=posts/notes/data-as-entrepreneurship.md&type=notes" }
+    { "date": "2025-05-15", "title": "Atmospheric Density-Based Geofence Tracking System", "href": "post.html?type=notes&slug=atmospheric-density-based-geofence-tracking-system" },
+    { "date": "2022-06-13", "title": "Data as Entrepreneurship", "href": "post.html?type=notes&slug=data-as-entrepreneurship" }
   ]
 }
