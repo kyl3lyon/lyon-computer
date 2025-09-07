@@ -3,53 +3,145 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Redirecting…</title>
+    <title>Kyle Lyon</title>
+    <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <link href="assets/css/lyon-wds.min.css" rel="stylesheet">
-    <link href="assets/css/computer.css" rel="stylesheet">
+    <link href="/assets/css/lyon-wds.min.css" rel="stylesheet" />
+    <link href="/assets/css/computer.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%A6%81%3C/text%3E%3C/svg%3E">
 </head>
-<body class="computer">
-    <main class="container measure-48 top-4">
-        <h2>Redirecting…</h2>
-        <p>If you are not redirected automatically, <a id="redirect-link" href="/">go to Home</a>.</p>
+<body class="post-template computer">
+    <header class="container bottom-4">
+        <div class="columns">
+            <div class="column">
+                <div class="navbar">
+                    <div class="navbar-section measure-12 measure-8-phone"><h2>Navigation</h2></div>
+                    <div class="navbar-section">
+                        <h2>
+                            <span class="h2-normal" id="breadcrumb">~ / <a class="link" href="/">Home</a></span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container limit-48">
+        <article id="post-content">
+            <div id="loading" style="text-align: center; padding: 2rem;">
+                <h2>Loading…</h2>
+            </div>
+        </article>
     </main>
+    <p class="container">
+        <a id="back-link" class="top-2 btn bg-dark-green white hover-white hover-bg-black" href="/">← Back</a>
+    </p>
+    <footer class="top-4 moon-gray">
+        <small>© Copyright 2025, Kyle Lyon. Design by Neil Panchal.</small>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>var __b='{{ site.baseurl }}'; window.__BASEURL__=(__b&&__b.indexOf('{')===-1)?__b:'';</script>
     <script>
-      (function() {
-        var BASEURL = (typeof window !== 'undefined' && window.__BASEURL__) ? window.__BASEURL__ : '';
-        var ROOT = BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
-        var path = window.location.pathname || '';
-        if (BASEURL && path.startsWith(BASEURL)) path = path.slice(BASEURL.length);
-        path = path.replace(/^\/+/, '').replace(/\/+$/,'');
+(function() {
+  "use strict";
 
-        var types = ['notes','projects','studies','media'];
-        var parts = path.split('/');
-        var target = ROOT;
+  function parseCleanUrl() {
+    let path = window.location.pathname || "";
+    const segments = path.replace(/^\/+/, "").replace(/\/+$/, "").split("/");
+    
+    // Handle archive redirects: /notes -> /notes/index.html
+    if (segments.length === 1 && ["notes", "projects", "studies", "media"].includes(segments[0])) {
+      window.location.replace(`/${segments[0]}/`);
+      return null;
+    }
+    
+    // Handle site-index
+    if (segments.length === 1 && segments[0] === "site-index") {
+      window.location.replace("/site-index.html");
+      return null;
+    }
+    
+    // Handle individual posts: /notes/slug-name -> render directly
+    if (segments.length === 2 && ["notes", "projects", "studies", "media"].includes(segments[0])) {
+      const type = segments[0];
+      const slug = segments[1];
+      return { type, slug, src: `/posts/${type}/${slug}.md` };
+    }
+    
+    return null;
+  }
 
-        // site-index direct path
-        if (parts.length === 1 && parts[0] === 'site-index') {
-          target = ROOT + 'site-index.html';
-        }
-        // /{type}/archive.html -> query form
-        else if (parts.length === 2 && types.includes(parts[0]) && parts[1] === 'archive.html') {
-          target = ROOT + 'archive.html?type=' + parts[0];
-        }
-        // /{type} -> archive for type
-        else if (parts.length === 1 && types.includes(parts[0])) {
-          target = ROOT + 'archive.html?type=' + parts[0];
-        }
-        // /{type}/{slug} -> post
-        else if (parts.length === 2 && types.includes(parts[0])) {
-          target = ROOT + 'post.html?type=' + parts[0] + '&slug=' + encodeURIComponent(parts[1]);
-        }
-        // fallbacks
-        else if (parts.length === 1 && parts[0] === 'archive.html') {
-          target = ROOT + 'archive.html';
-        }
+  function updateChrome(type, interimTitle = "Loading…") {
+    const humanType = type.charAt(0).toUpperCase() + type.slice(1);
+    document.title = interimTitle;
 
-        document.getElementById('redirect-link').setAttribute('href', target);
-        try { window.location.replace(target); } catch (e) { window.location.href = target; }
-      })();
+    const breadcrumb = document.getElementById("breadcrumb");
+    if (breadcrumb) {
+      breadcrumb.innerHTML = `~ / <a class="link" href="/">Home</a> / <a class="link" href="/${type}/">${humanType}</a> / ${interimTitle}`;
+    }
+
+    const backLink = document.getElementById("back-link");
+    if (backLink) {
+      backLink.href = `/${type}/`;
+      backLink.textContent = `← Back to ${humanType}`;
+    }
+
+    document.body.classList.add(`tag-${type}`);
+  }
+
+  async function loadAndRenderMarkdown(src, type) {
+    const contentDiv = document.getElementById("post-content");
+    const loadingDiv = document.getElementById("loading");
+    if (!contentDiv) return;
+
+    if (!src) {
+      contentDiv.innerHTML = "<h2>Page Not Found</h2><p>The page you're looking for doesn't exist.</p>";
+      return;
+    }
+
+    try {
+      const res = await fetch(src, { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error(`File not found: ${src}`);
+      }
+      const markdown = await res.text();
+      
+      // Extract title from first heading
+      const match = markdown.match(/^\s{0,3}#{1,6}\s+(.+)$/m);
+      const derivedTitle = match ? match[1].trim() : "Post";
+      updateChrome(type, derivedTitle);
+      
+      // Hide loading, render markdown
+      if (loadingDiv) loadingDiv.style.display = 'none';
+      let renderedHtml = marked.parse(markdown);
+      
+      // Fix relative image paths to be absolute
+      renderedHtml = renderedHtml.replace(/src="assets\//g, 'src="/assets/');
+      
+      contentDiv.innerHTML = renderedHtml;
+    } catch (err) {
+      console.error("Failed to load or render markdown:", err);
+      if (loadingDiv) loadingDiv.style.display = 'none';
+      contentDiv.innerHTML = `<h2>Page Not Found</h2><p>The content you're looking for doesn't exist.</p>`;
+    }
+  }
+
+  async function init() {
+    const parsed = parseCleanUrl();
+    if (parsed) {
+      updateChrome(parsed.type, "Loading…");
+      await loadAndRenderMarkdown(parsed.src, parsed.type);
+    } else {
+      // Will redirect above, but fallback to 404
+      document.getElementById("post-content").innerHTML = "<h2>Page Not Found</h2><p>The page you're looking for doesn't exist.</p>";
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
     </script>
 </body>
 </html>
