@@ -3,11 +3,12 @@
 
   const categories = ["notes", "projects", "studies", "media"];
   const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+  const ROOT = BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
   const displayLimit = 5; 
 
   async function loadItems(category) {
     try {
-      const res = await fetch(`${BASEURL}assets/data/${category}.json`, { cache: "no-store" });
+      const res = await fetch(`${ROOT}assets/data/${category}.json`, { cache: "no-store" });
       if (!res.ok) {
         console.error(`Failed to load data for ${category}`);
         return [];
@@ -37,7 +38,7 @@
     for (const item of itemsToShow) {
       const linkTitle = `View ${humanType} - ${item.title}`;
       const buttonText = (humanType === 'Studie' || humanType === 'Project') ? 'View' : 'Read';
-      const href = item.href.startsWith("http") ? item.href : `${BASEURL}${item.href}`;
+      const href = item.href.startsWith("http") ? item.href : `${ROOT}${item.href}`;
       rowsHtml += `
         <tr>
           <td>

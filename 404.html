@@ -26,16 +26,24 @@
         var parts = path.split('/');
         var target = ROOT;
 
-        if (parts.length === 1 && types.includes(parts[0])) {
-          // /notes -> archive for type
+        // site-index direct path
+        if (parts.length === 1 && parts[0] === 'site-index') {
+          target = ROOT + 'site-index.html';
+        }
+        // /{type}/archive.html -> query form
+        else if (parts.length === 2 && types.includes(parts[0]) && parts[1] === 'archive.html') {
           target = ROOT + 'archive.html?type=' + parts[0];
-        } else if (parts.length === 2 && types.includes(parts[0])) {
-          // /notes/slug -> post for type+slug
+        }
+        // /{type} -> archive for type
+        else if (parts.length === 1 && types.includes(parts[0])) {
+          target = ROOT + 'archive.html?type=' + parts[0];
+        }
+        // /{type}/{slug} -> post
+        else if (parts.length === 2 && types.includes(parts[0])) {
           target = ROOT + 'post.html?type=' + parts[0] + '&slug=' + encodeURIComponent(parts[1]);
-        } else if (parts.length === 2 && types.includes(parts[0]) && parts[1] === 'archive.html') {
-          // /notes/archive.html -> archive
-          target = ROOT + 'archive.html?type=' + parts[0];
-        } else if (parts.length === 1 && parts[0] === 'archive.html') {
+        }
+        // fallbacks
+        else if (parts.length === 1 && parts[0] === 'archive.html') {
           target = ROOT + 'archive.html';
         }
 

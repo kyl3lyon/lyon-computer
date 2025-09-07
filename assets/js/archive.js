@@ -24,9 +24,14 @@
     }
   }
 
-  async function loadData(type) {
+  function getRoot() {
     const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
-    const res = await fetch(`${BASEURL}assets/data/${type}.json`, { cache: "no-store" });
+    return BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
+  }
+
+  async function loadData(type) {
+    const ROOT = getRoot();
+    const res = await fetch(`${ROOT}assets/data/${type}.json`, { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to load data for ${type}`);
     return res.json();
   }
@@ -47,8 +52,8 @@
       tdTitle.className = "pv1 pr4 dtc";
       const a = document.createElement("a");
       a.className = "link";
-      const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
-      a.href = item.href && !item.href.startsWith("http") ? `${BASEURL}${item.href}` : item.href;
+      const ROOT = getRoot();
+      a.href = item.href && !item.href.startsWith("http") ? `${ROOT}${item.href}` : item.href;
       a.title = item.title;
       a.textContent = item.title;
       tdTitle.appendChild(a);
@@ -62,6 +67,22 @@
   async function init() {
     const type = parseType();
     setChrome(type);
+    try {
+      const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+      const ROOT = BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
+      let path = window.location.pathname || '';
+      if (BASEURL && path.startsWith(BASEURL)) path = path.slice(BASEURL.length);
+      path = path.replace(/^\/+/, '').replace(/\/+$/,'');
+      const desired = `${type}/archive.html`;
+      if (path !== desired) {
+        const prettyUrl = ROOT + desired;
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState({}, '', prettyUrl);
+        }
+      }
+    } catch (e) {
+      // no-op if history API is unavailable
+    }
     try {
       const data = await loadData(type);
       renderRows(data.items || []);

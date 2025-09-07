@@ -3,12 +3,13 @@
 
   const categories = ["notes", "projects", "studies", "media"];
   const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+  const ROOT = BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
 
   async function fetchAllItems() {
     let allItems = [];
     for (const category of categories) {
       try {
-        const res = await fetch(`${BASEURL}assets/data/${category}.json`, { cache: "no-store" });
+        const res = await fetch(`${ROOT}assets/data/${category}.json`, { cache: "no-store" });
         if (!res.ok) {
           console.error(`Failed to load data for ${category}`);
           continue; 
@@ -41,7 +42,7 @@
     let rowsHtml = "";
     for (const item of items) {
       const humanCategory = item.category.charAt(0).toUpperCase() + item.category.slice(1);
-      const href = item.href.startsWith("http") ? item.href : `${BASEURL}${item.href}`;
+      const href = item.href.startsWith("http") ? item.href : `${ROOT}${item.href}`;
       rowsHtml += `
         <tr>
           <td>
@@ -61,6 +62,22 @@
     const allItems = await fetchAllItems();
     const sortedItems = sortItemsByDate(allItems);
     renderRows(sortedItems);
+    try {
+      const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+      const ROOT = BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
+      let path = window.location.pathname || '';
+      if (BASEURL && path.startsWith(BASEURL)) path = path.slice(BASEURL.length);
+      path = path.replace(/^\/+/, '').replace(/\/+$/,'');
+      const desired = 'site-index';
+      if (path !== desired && path !== 'site-index.html') {
+        const prettyUrl = ROOT + desired;
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState({}, '', prettyUrl);
+        }
+      }
+    } catch (e) {
+      // ignore if history not available
+    }
   }
 
   if (document.readyState === "loading") {
