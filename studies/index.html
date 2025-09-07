@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Kyle Lyon / Studies</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <link href="/assets/css/lyon-wds.min.css" rel="stylesheet">
+    <link href="/assets/css/computer.css" rel="stylesheet">
+    <link rel="canonical" href="https://lyon.computer/studies/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Kyle Lyon">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kyle Lyon / Studies">
+    <meta property="og:description" content="Studies and research by Kyle Lyon.">
+    <meta property="og:url" content="https://lyon.computer/studies/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kyle Lyon / Studies">
+    <meta name="twitter:description" content="Studies and research by Kyle Lyon.">
+    <meta name="twitter:url" content="https://lyon.computer/studies/">
+    <meta name="twitter:site" content="@kyl3lyon">
+    
+    <style>:root {--ghost-accent-color: #000000;}</style>
+    <link href="/assets/css/cards.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%A6%81%3C/text%3E%3C/svg%3E">
+</head>
+<body class="archive-template computer tag-studies">
+<header class="container bottom-6">
+    <div class="columns">
+        <div class="column">
+            <div class="navbar">
+                <div class="navbar-section measure-12 measure-8-phone"><h2>Navigation</h2></div>
+                <div class="navbar-section"><h2><span class="h2-normal">~ / <a href="/" title="Home">Home</a> / <span id="crumb-type">Studies</span></span></h2></div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="measure-60 measure-36-tablet responsive-24-phone">
+    <div class="container">
+        <h2 id="archive-title">Studies Index</h2>
+        <div class="columns bottom-1">
+            <div class="column flex-measure-60 bottom-1">
+                <table class="table">
+                    <thead class="black bg-light-gray ba b--black">
+                    <tr>
+                        <th class="measure-12 measure-8-phone">Date</th>
+                        <th>Title</th>
+                        <th class="measure-6 hide-phone">Link</th>
+                    </tr>
+                    </thead>
+                    <tbody id="archive-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p class="ml-2"><a href="/" title="Home">← Back to Home</a></p>
+</main>
+<footer class="top-4 moon-gray">
+    <small>© Copyright 2025, Kyle Lyon. Design by Neil Panchal.</small>
+</footer>
+<script>var __b=''; window.__BASEURL__='';</script>
+<script>
+(function() {
+  "use strict";
+  
+  const type = "studies";
+  const BASEURL = (typeof window !== "undefined" && window.__BASEURL__) ? window.__BASEURL__ : "";
+  const ROOT = BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
+
+  async function loadItems() {
+    try {
+      const res = await fetch(`${ROOT}assets/data/${type}.json`, { cache: "no-store" });
+      if (!res.ok) {
+        console.error(`Failed to load data for ${type}`);
+        return [];
+      }
+      const data = await res.json();
+      return data.items && Array.isArray(data.items) ? data.items : [];
+    } catch (err) {
+      console.error(`Error fetching ${type}.json:`, err);
+      return [];
+    }
+  }
+
+  function renderRows(items) {
+    const tbody = document.getElementById("archive-tbody");
+    if (!tbody) return;
+
+    if (!items || items.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="3">No items found.</td></tr>';
+      return;
+    }
+
+    let rowsHtml = "";
+    
+    for (const item of items) {
+      const slug = item.href.split('slug=')[1] || item.href.split('/').pop();
+      const cleanUrl = `${ROOT}studies/${slug}`;
+      const linkTitle = `View Study - ${item.title}`;
+      rowsHtml += `
+        <tr>
+          <td>
+            <time datetime="${item.date}">${item.date}</time>
+          </td>
+          <td>
+            <a href="${cleanUrl}" title="${item.title}">${item.title}</a>
+          </td>
+          <td class="hide-phone">
+            <a class="btn btn-sm bg-dark-green white hover-white hover-bg-black measure-6" href="${cleanUrl}" title="${linkTitle}">View →</a><br/>
+          </td>
+        </tr>
+      `;
+    }
+    tbody.innerHTML = rowsHtml;
+  }
+
+  async function init() {
+    const items = await loadItems();
+    renderRows(items);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

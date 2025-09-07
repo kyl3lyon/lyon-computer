@@ -38,17 +38,18 @@
     for (const item of itemsToShow) {
       const linkTitle = `View ${humanType} - ${item.title}`;
       const buttonText = (humanType === 'Studie' || humanType === 'Project') ? 'View' : 'Read';
-      const href = item.href.startsWith("http") ? item.href : `${ROOT}${item.href}`;
+      const slug = item.href.split('slug=')[1] || item.href.split('/').pop();
+      const cleanUrl = `${ROOT}${category}/${slug}`;
       rowsHtml += `
         <tr>
           <td>
             <time datetime="${item.date}">${item.date}</time>
           </td>
           <td>
-            <a href="${href}" title="${item.title}">${item.title}</a>
+            <a href="${cleanUrl}" title="${item.title}">${item.title}</a>
           </td>
           <td class="hide-phone">
-            <a class="btn btn-sm bg-dark-green white hover-white hover-bg-black measure-6" href="${href}" title="${linkTitle}">${buttonText} →</a><br/>
+            <a class="btn btn-sm bg-dark-green white hover-white hover-bg-black measure-6" href="${cleanUrl}" title="${linkTitle}">${buttonText} →</a><br/>
           </td>
         </tr>
       `;

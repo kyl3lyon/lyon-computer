@@ -1,0 +1,11 @@
+# Handle clean URLs for GitHub Pages-style routing
+RewriteEngine On
+
+# Redirect /notes to /notes/index.html
+RewriteRule ^(notes|projects|studies|media)/?$ $1/index.html [L]
+
+# Redirect /notes/slug-name to /post.html?type=notes&slug=slug-name
+RewriteRule ^(notes|projects|studies|media)/([^/]+)/?$ post.html?type=$1&slug=$2 [L,QSA]
+
+# Redirect /site-index to /site-index.html
+RewriteRule ^site-index/?$ site-index.html [L]
