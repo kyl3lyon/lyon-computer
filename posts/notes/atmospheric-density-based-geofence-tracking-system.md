@@ -48,7 +48,7 @@ Sustaining space domain awareness in this environment is essential not just for 
 ### Dual Horizons Challenge Demands Fresh SDA Solutions
 
 <figure>
-  <img src="assets/images/notes/dual_horizons.webp" alt="Dual Horizons: U.S.-India Satellite Tracking Challenge" style="max-width:400px; height:auto;" />
+  <img src="assets/images/notes/dual_horizons.webp" alt="Dual Horizons: U.S.-India Satellite Tracking Challenge" />
   <figcaption>Dual Horizons: U.S.-India Satellite Tracking Challenge—advancing SDA innovation through U.S.-India collaboration.</figcaption>
 </figure>
 
