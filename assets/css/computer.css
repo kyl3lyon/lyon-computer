@@ -1,10 +1,10 @@
 /* ============================================================================
- * COMPUTER.CSS - Theme Layer for Lyon WDS
+ * COMPUTER.CSS - Theme Layer for WDS
  * ============================================================================
  * 
  * PURPOSE:
  * This file acts as a theme/customization layer on top of lyon-wds.min.css
- * (Lyon WDS: High-Contrast Mission Control design system). It provides:
+ * (WDS: High-Contrast Mission Control design system). It provides:
  * 
  * 1. Custom font definitions (replacing system fonts with custom typography)
  * 2. Global style overrides (adjusting base typography and spacing)
@@ -26,10 +26,10 @@
 
 /* ============================================================================
  * I. FONT DEFINITIONS
- * Custom font-face declarations replacing the system fonts defined in Lyon WDS
+ * Custom font-face declarations replacing the system fonts defined in WDS
  * ============================================================================ */
 
-/* Regular weight font - replaces Lyon WDS's default Univers/system fonts */
+/* Regular weight font - replaces WDS's default Univers/system fonts */
 @font-face {
     font-family: 'CustomFont';
     src: url('../fonts/Regular.ttf') format('truetype');
@@ -64,13 +64,13 @@
 
 /* ============================================================================
  * II. GLOBAL STYLE OVERRIDES
- * Modifications to base HTML elements and global settings from Lyon WDS
+ * Modifications to base HTML elements and global settings from WDS
  * ============================================================================ */
 
-/* OVERRIDE: Adjusts body padding and font from Lyon WDS defaults
- * - Changes padding from Lyon WDS's responsive padding to fixed 1rem/1.5rem
- * - Replaces Lyon WDS's font stack with CustomFont
- * - Sets explicit font-size to 100% (16px base) vs Lyon WDS's 15px root */
+/* OVERRIDE: Adjusts body padding and font from WDS defaults
+ * - Changes padding from WDS's responsive padding to fixed 1rem/1.5rem
+ * - Replaces WDS's font stack with CustomFont
+ * - Sets explicit font-size to 100% (16px base) vs WDS's 15px root */
 body {
     padding: 1rem 1.5rem;
     font-size: 100%;
@@ -78,13 +78,13 @@ body {
 }
 
 /* OVERRIDE: Normalizes heading sizes to 1em (16px) 
- * Overrides Lyon WDS's larger heading sizes (var(--font-size-lg)) */
+ * Overrides WDS's larger heading sizes (var(--font-size-lg)) */
 h2, h3, h4 {
     font-size: 1em;
 }
 
 /* CUSTOM: Adds specific font-weight for h2 elements with .h2-normal class
- * Uses Lyon WDS's --font-weight-normal (450) variable */
+ * Uses WDS's --font-weight-normal (450) variable */
 .h2-normal {
     font-weight: 450;
 }
@@ -105,7 +105,7 @@ p.preamble {
     margin-bottom: 0.4em;
 }
 
-/* OVERRIDE: Changes horizontal rule from Lyon WDS's solid to dashed style
+/* OVERRIDE: Changes horizontal rule from WDS's solid to dashed style
  * Creates more subtle section breaks */
 hr {
     border: none;
@@ -119,12 +119,12 @@ hr {
 
 /* ============================================================================
  * III. COMPONENT OVERRIDES
- * Modifications to specific Lyon WDS components
+ * Modifications to specific WDS components
  * ============================================================================ */
 
 /* --- NAVBAR CUSTOMIZATIONS --- */
 
-/* OVERRIDE: Reinforces navbar section flex properties from Lyon WDS
+/* OVERRIDE: Reinforces navbar section flex properties from WDS
  * (May be redundant with base styles but ensures consistency) */
 .navbar .navbar-section {
     display: -ms-flexbox;
@@ -143,7 +143,7 @@ hr {
 }
 
 /* OVERRIDE: Resets navbar brand font-size to inherit from parent
- * Removes Lyon WDS's larger brand text (var(--font-size-lg)) */
+ * Removes WDS's larger brand text (var(--font-size-lg)) */
 .navbar .navbar-brand {
     font-size: inherit; /* bypass */
     font-style: normal;
@@ -161,7 +161,7 @@ hr {
 /* --- TABLE CUSTOMIZATIONS --- */
 
 /* CUSTOM: Adds vertical borders to classic table cells
- * Enhances Lyon WDS's horizontal-only table borders */
+ * Enhances WDS's horizontal-only table borders */
 .table-classic td {
     border-left: .1rem solid #bfbfbf;
 }
@@ -207,7 +207,7 @@ hr {
 }
 
 /* CUSTOM: Adds solid black border to cards
- * Overrides Lyon WDS's lighter border color */
+ * Overrides WDS's lighter border color */
 .card {
     border: 1px solid #000;
 }
@@ -240,13 +240,13 @@ header.container {
 }
 
 /* OVERRIDE: Allows main content to use full width
- * Removes Lyon WDS's container width constraints for main content */
+ * Removes WDS's container width constraints for main content */
 main .container {
     max-width: inherit;
 }
 
 /* OVERRIDE: Sets fixed container width and removes auto-margins
- * Changes from Lyon WDS's responsive container to fixed 800px width */
+ * Changes from WDS's responsive container to fixed 800px width */
 .container {
     max-width: 800px;
     margin: 0;
@@ -305,6 +305,11 @@ img.splash {
 footer {
     margin-top: 4rem;
     color: #CCC;
+}
+
+/* CUSTOM: Ensure footer links inherit text color and do not render blue/purple */
+footer a, footer a:visited, footer a:hover, footer a:active, footer a:focus {
+    color: inherit;
 }
 
 /* CUSTOM: Clears floats before footer */

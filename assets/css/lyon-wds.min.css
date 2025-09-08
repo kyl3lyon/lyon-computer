@@ -1,7 +1,7 @@
-/*! Lyon WDS: High-Contrast Mission Control v1.0.0 | Based on Spectree CSS. */
+/*! WDS: High-Contrast Mission Control v1.0.0 | Based on Spectree CSS. */
 
 /*
-  LYON WDS: HIGH-CONTRAST MISSION CONTROL PALETTE
+  WDS: HIGH-CONTRAST MISSION CONTROL PALETTE
   Source: Inspired by NASA Standards, optimized for high-contrast on a white background.
 */
 :root {
@@ -52,7 +52,7 @@
     --color-error-background: rgba(var(--color-error-rgb), 0.03); /* Light transparent red for error states */
   
     /*
-      LYON WDS: TYPOGRAPHY & SHAPE SYSTEM
+      WDS: TYPOGRAPHY & SHAPE SYSTEM
       This is the central control panel for all fonts, sizes, and shapes.
     */
   
