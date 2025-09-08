@@ -226,6 +226,13 @@ hr {
     display: none;
 }
 
+/* --- BUTTON CUSTOMIZATIONS --- */
+
+/* CUSTOM: Ensures button link colors persist after being visited */
+.btn.white:visited {
+    color: #FFF;
+}
+
 
 /* ============================================================================
  * IV. LAYOUT & STRUCTURE
