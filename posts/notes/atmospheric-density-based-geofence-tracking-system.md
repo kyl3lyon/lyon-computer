@@ -26,7 +26,7 @@ Competitive Endurance is thus a strategy of vigilance, resilience, and principle
 ### The SDA TAP Lab Operationalizes Competitive Endurance
 
 <figure>
-  <img src="assets/images/notes/ssc_sdataplab.webp" alt="SDA TAP Lab in Colorado Springs" />
+  <img src="assets/images/notes/ssc_sdataplab.webp" alt="SDA TAP Lab in Colorado Springs" style="max-width:400px; height:auto;" />
   <figcaption>The SDA TAP Lab in Colorado Springs accelerates the delivery of advanced space battle management tools to the U.S. Space Force.</figcaption>
 </figure>
 
@@ -48,7 +48,7 @@ Sustaining space domain awareness in this environment is essential not just for 
 ### Dual Horizons Challenge Demands Fresh SDA Solutions
 
 <figure>
-  <img src="assets/images/notes/dual_horizons.webp" alt="Dual Horizons: U.S.-India Satellite Tracking Challenge" />
+  <img src="assets/images/notes/dual_horizons.webp" alt="Dual Horizons: U.S.-India Satellite Tracking Challenge" style="max-width:400px; height:auto;" />
   <figcaption>Dual Horizons: U.S.-India Satellite Tracking Challenge—advancing SDA innovation through U.S.-India collaboration.</figcaption>
 </figure>
 

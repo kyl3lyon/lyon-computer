@@ -1,7 +1,7 @@
 ## Launch Service Provider Analytics
 
 <figure>
-  <img src="assets/images/projects/lsp-analytics.webp" alt="Launch Service Provider Analytics Dashboard" style="max-width:100%; height:auto;" />
+  <img src="assets/images/projects/lsp-analytics.webp" alt="Launch Service Provider Analytics Dashboard" style="max-width:400px; height:auto;" />
   <figcaption>Visualization of the Launch Service Provider Analytics tool, demonstrating risk assessment outputs for National Security Space Launch operations.</figcaption>
 </figure>
 

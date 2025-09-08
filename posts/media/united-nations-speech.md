@@ -8,7 +8,7 @@ Speaking at the United Nations on ‘AI and the Future of MSMEs’ was a profoun
 </figure>
 <figure>
   <img src="assets/images/media/kyle-lyon-un-talk.jpg" style="max-width:100%; height:auto;" alt="Delivering a talk at the UN" />
-  <figcaption>Delivering his speech on AI and MSMEs at the United Nations.</figcaption>
+  <figcaption>Delivering speech on AI and MSMEs at the United Nations.</figcaption>
 </figure>
 <figure>
   <img src="assets/images/media/united-nations-msme-day.jpg" style="max-width:100%; height:auto;" alt="United Nations MSME Day event" />
