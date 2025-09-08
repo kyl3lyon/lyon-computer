@@ -4,13 +4,13 @@ Speaking at the United Nations on ‘AI and the Future of MSMEs’ was a profoun
 
 <figure>
   <img src="assets/images/media/un-kyle-lyon.jpg" style="max-width:100%; height:auto;" alt="At the United Nations" />
-  <figcaption>Kyle Lyon at the United Nations headquarters.</figcaption>
+  <figcaption>At the United Nations headquarters.</figcaption>
 </figure>
 <figure>
   <img src="assets/images/media/kyle-lyon-un-talk.jpg" style="max-width:100%; height:auto;" alt="Delivering a talk at the UN" />
-  <figcaption>Kyle Lyon delivering his speech on AI and MSMEs at the United Nations.</figcaption>
+  <figcaption>Delivering his speech on AI and MSMEs at the United Nations.</figcaption>
 </figure>
 <figure>
   <img src="assets/images/media/united-nations-msme-day.jpg" style="max-width:100%; height:auto;" alt="United Nations MSME Day event" />
-  <figcaption>United Nations MSME Day event, highlighting the role of micro, small, and medium enterprises globally.</figcaption>
+  <figcaption>United Nations MSME Day event.</figcaption>
 </figure>
