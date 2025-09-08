@@ -6,6 +6,13 @@
   const ROOT = BASEURL ? (BASEURL.endsWith('/') ? BASEURL : BASEURL + '/') : '/';
   const displayLimit = 5; 
 
+  const categorySingular = {
+    "notes": "Note",
+    "projects": "Project",
+    "studies": "Study",
+    "media": "Media"
+  };
+
   async function loadItems(category) {
     try {
       const res = await fetch(`${ROOT}assets/data/${category}.json`, { cache: "no-store" });
@@ -30,7 +37,7 @@
       return;
     }
 
-    const humanType = category.charAt(0).toUpperCase() + category.slice(1, -1);
+    const humanType = categorySingular[category];
     let rowsHtml = "";
     
     const itemsToShow = items.slice(0, displayLimit);
