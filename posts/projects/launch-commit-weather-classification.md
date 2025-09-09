@@ -7,3 +7,8 @@ The data posed immediate constraints as OpenMeteo’s API delivered hourly weath
 The classifier that emerged performed respectably consistent on clear launch-or-scrub decisions. The team presented and deployed it at the SDA TAP Lab Cohort 4 and 5, where it held up under review as it supported a satisfactory decision for the Starship IFT-6 Launch Experiment on November 19, 2024.
 
 The SDA TAP Lab, where this played out, is a Space Force effort in Colorado Springs focused on accelerating tech solutions for space domain awareness—think detecting threats or, in my case, predicting launch weather. It runs 3-month cycles, like Cohorts 4 and 5, bringing together industry, academia, and operators to tackle defense challenges fast. It’s a sandbox with data and tools, pushing collaboration over bureaucracy, and it gave me a platform to test and refine this classifier.
+
+<figure>
+  <img src="assets/images/projects/launch-status-classifier.png" alt="Launch Weather Status Classifier">
+  <figcaption>Launch Weather Status Classifier</figcaption>
+</figure>
