@@ -1,6 +1,6 @@
 ---
 title: "To SpaceX and Beyond"
-description: "Through the Hacking for Defense program at George Washington University, I teamed up with the 5th Space Launch Squadron's Falcon Flight to build an analytical tool from historical SpaceX launch data. The aim: gauge mission risks and streamline processing for Department of Defense payloads, shifting "
+description: "Developed a mission risk tool for DoD payloads with the 5th Space Launch Squadron using SpaceX launch data through GWU’s Hacking for Defense program."
 date: 2022-08-19
 type: media
 layout: layouts/post.njk

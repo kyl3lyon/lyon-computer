@@ -1,6 +1,6 @@
 ---
 title: "Launch Service Provider Analytics"
-description: "At the Defense TechConnect Innovation Summit, I presented a new tool for the U.S. Space Force’s 5th and 2nd Space Launch Squadrons to assess National Security Space Launch risks. Combining machine learning and natural language processing, it automates risk evaluation for launch vehicle ground operat"
+description: "Presented a machine learning and NLP tool at the Defense TechConnect Innovation Summit that automates National Security Space Launch risk assessments, boosting accuracy and efficiency for the U.S. Space Force’s 5th and 2nd Space Launch Squadrons."
 date: 2023-11-23
 type: projects
 layout: layouts/post.njk
