@@ -1,0 +1,15 @@
+{% set body_class = "post-template" %}
+{% set crumb = '<a class="link" href="/' + (type or 'notes') + '/">' + (type or 'notes') | capitalize + '</a> / ' + (title or 'Post') %}
+{% set og_type = "article" %}
+{% extends "layouts/base.njk" %}
+{% block content %}
+<article id="post-content">
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+  </article>
+  <p>
+    <a class="top-2 btn bg-dark-green white hover-white hover-bg-black" href="/{{ type }}/">← Back to {{ (type or 'notes') | capitalize }}</a>
+  </p>
+{% endblock %}
+
+

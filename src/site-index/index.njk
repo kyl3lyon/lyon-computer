@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: Kyle Lyon / Site Index
+crumb: Site Index
+---
+<div class="columns bottom-2">
+  <div class="column">
+    <h2>Chronological</h2>
+    <div>
+      <table class="table">
+        <thead><tr><th class="measure-12">Date</th><th>Title</th><th class="measure-12 hide-phone">Category</th></tr></thead>
+        <tbody>
+          {% for item in collections.allPosts %}
+          <tr>
+            <td><time datetime="{{ item.date | date('yyyy-MM-dd') }}">{{ item.date | date('yyyy-MM-dd') }}</time></td>
+            <td><a href="{{ item.url }}">{{ item.data.title }}</a></td>
+            <td class="hide-phone">{{ item.data.type | capitalize }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<p class="container"><a class="top-2 btn bg-dark-green white hover-white hover-bg-black" href="/">← Back to Home</a></p>
+
+

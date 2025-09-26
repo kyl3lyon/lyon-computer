@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "date": "2025-07-19", "title": "Ionospheric Plasma Anomaly Tracking", "href": "post.html?type=projects&slug=ionospheric-plasma-anomaly-tracking" },
+    { "date": "2024-12-01", "title": "Launch Commit Weather Classification", "href": "post.html?type=projects&slug=launch-commit-weather-classification" },
+    { "date": "2024-06-14", "title": "Vulcan Flight Hardware Verification Dashboard", "href": "post.html?type=projects&slug=vulcan-flight-hardware-verification-dashboard" },
+    { "date": "2023-11-23", "title": "Launch Service Provider Analytics", "href": "post.html?type=projects&slug=launch-service-provider-analytics" }
+  ]
+}
