@@ -1,10 +1,10 @@
 ---
-title: "Atmospheric Density-Based Geofence Tracking System"
-description: "Meeting with Liz McNally, Deputy Director of Commercial Operations at the Defense Innovation Unit."
+title: "$100k Atmospheric Geofence Satellite Tracking Prototype"
+description: "Atmospheric Geofence tracks satellites by detecting their disturbances in the upper atmosphere, adding a passive, CCDM-resilient layer to Space Domain Awareness."
 date: 2025-05-15
 type: notes
 layout: layouts/post.njk
-permalink: "/notes/atmospheric-density-based-geofence-tracking-system/index.html"
+permalink: "/notes/atmospheric-geofence-satellite-tracking-prototype/index.html"
 ---
 <figure>
   <img src="/assets/images/notes/kyle-diu.webp" alt="Meeting with Liz McNally, Deputy Director of Commercial Operations at the Defense Innovation Unit" />

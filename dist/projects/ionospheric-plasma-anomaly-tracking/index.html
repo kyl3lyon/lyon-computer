@@ -8,16 +8,16 @@
   <link href="/assets/css/lyon-wds.min.css" rel="stylesheet" />
   <link href="/assets/css/computer.css" rel="stylesheet" />
   <link rel="canonical" href="https://lyon.computer/projects/ionospheric-plasma-anomaly-tracking/" />
-  <meta name="description" content="Demoed an alpha prototype at the SDA TAP Lab in Colorado Springs, showing how SuperDARN radar data can be engineered into a virtual sensor grid. The proof of concept explores the ionosphere as a new sensing layer for detecting space-capable objects." />
+  <meta name="description" content="Demoed an alpha prototype at SDA TAP Lab using SuperDARN radar data to build a virtual sensor grid, exploring the ionosphere as a new sensing layer for detecting space-capable objects." />
   <meta property="og:site_name" content="Kyle Lyon" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Ionospheric Plasma Anomaly Tracking" />
-  <meta property="og:description" content="Demoed an alpha prototype at the SDA TAP Lab in Colorado Springs, showing how SuperDARN radar data can be engineered into a virtual sensor grid. The proof of concept explores the ionosphere as a new sensing layer for detecting space-capable objects." />
+  <meta property="og:description" content="Demoed an alpha prototype at SDA TAP Lab using SuperDARN radar data to build a virtual sensor grid, exploring the ionosphere as a new sensing layer for detecting space-capable objects." />
   <meta property="og:url" content="https://lyon.computer/projects/ionospheric-plasma-anomaly-tracking/" />
   <meta property="og:image" content="" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ionospheric Plasma Anomaly Tracking" />
-  <meta name="twitter:description" content="Demoed an alpha prototype at the SDA TAP Lab in Colorado Springs, showing how SuperDARN radar data can be engineered into a virtual sensor grid. The proof of concept explores the ionosphere as a new sensing layer for detecting space-capable objects." />
+  <meta name="twitter:description" content="Demoed an alpha prototype at SDA TAP Lab using SuperDARN radar data to build a virtual sensor grid, exploring the ionosphere as a new sensing layer for detecting space-capable objects." />
   <meta name="twitter:url" content="https://lyon.computer/projects/ionospheric-plasma-anomaly-tracking/" />
   <meta name="twitter:image" content="" />
 </head>
@@ -41,10 +41,8 @@
   
 <article id="post-content">
   <h1>Ionospheric Plasma Anomaly Tracking</h1>
-  <p>Demoed an alpha prototype at the SDA TAP Lab in Colorado Springs, showing how SuperDARN radar data can be engineered into a virtual sensor grid. The proof of concept explores the ionosphere as a new sensing layer for detecting space-capable objects.</p>
-<p>As space capabilities push beyond conventional flight limits, non-traditional propulsion and exotic orbits increasingly evade legacy sensors.</p>
-<p>The prototype software leverages high-frequency data from the SuperDARN radar network. By building a quad-tree grid from overlapping radar coverage, each node operates as a virtual sensor, with fidelity tied to radar density. From the radar’s auto-correlation function (ACF), we extract velocity, power, and spectral width to identify anomalous events—spikes and blips indicative of space-capable velocities. These are stitched into plausible tracks using kinematic constraints.</p>
-<p>This first iteration runs on ACF-level data to prove feasibility. Higher fidelity will require raw machine-level inputs. Next steps include validating candidate tracks against historical TLEs to establish baseline performance. The ultimate objective: outputting tracks to the Unified Data Library for unclassified tipping-and-queuing across command-and-control networks—enabling detection of HF radar echoes from hypersonic plasma trails and ionospheric disturbances from orbital debris.</p>
+  <p>At the SDA TAP Lab in Colorado Springs, I demoed an alpha prototype exploring how SuperDARN radar data can be transformed into a virtual sensor grid, turning the ionosphere itself into a new sensing layer for detecting space-capable objects. As space operations push beyond conventional flight limits, with non-traditional propulsion and exotic orbits increasingly evading legacy sensors, fresh detection methods are essential.</p>
+<p>The prototype software leverages high-frequency data from the SuperDARN radar network. Using overlapping radar coverage, it builds a quad-tree grid where each node acts as a virtual sensor, its fidelity tied to radar density. From the radar’s auto-correlation function (ACF), we extract velocity, power, and spectral width to identify anomalous events, spikes or blips characteristic of space-capable velocities, and stitch them into plausible tracks using kinematic constraints. This first iteration runs on ACF-level data to prove feasibility, with higher fidelity to come from raw machine-level inputs. Next steps include validating candidate tracks against historical TLEs to establish baseline performance, ultimately feeding tracks to the Unified Data Library for unclassified tipping-and-queuing across command-and-control networks. The goal: enable detection of HF radar echoes from hypersonic plasma trails and ionospheric disturbances caused by orbital debris.</p>
 <figure>
   <img src="/assets/images/projects/ionospheric-plasma-anomaly-detection.gif" alt="Ionospheric Plasma Anomaly Detection Demo" />
   <figcaption>Ionospheric Plasma Anomaly Detection Demo</figcaption>

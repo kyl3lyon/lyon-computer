@@ -1,6 +1,6 @@
 ---
 title: "United Nations Speech"
-description: "Speaking at the United Nations on ‘AI and the Future of MSMEs’ was a profound honor, spotlighting how AI can transform micro, small, and medium enterprises—vital engines of global economies. ([Viewable on UN TV](https://webtv.un.org/en/asset/k17/k17v91jhnv?kalturaStartTime=7775).) With technology ad"
+description: "Spoke at the United Nations on how AI can empower micro, small, and medium enterprises to streamline operations, unlock insights, and drive innovation for global economic growth."
 date: 2023-06-30
 type: media
 layout: layouts/post.njk

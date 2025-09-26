@@ -1,6 +1,6 @@
 ---
 title: "Data as Entrepreneurship"
-description: "At the United States Congress."
+description: "At the 2022 ICSB World Congress, I shared how my journey through GWU’s M.S. in Business Analytics revealed a key insight: data science and entrepreneurship share the same DNA—curiosity, creativity, and the drive to turn raw potential into real value."
 date: 2022-06-13
 type: notes
 layout: layouts/post.njk
