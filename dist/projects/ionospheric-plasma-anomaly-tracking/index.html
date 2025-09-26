@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Ionospheric Plasma Anomaly Tracking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link href="/assets/css/lyon-wds.min.css" rel="stylesheet" />
+  <link href="/assets/css/computer.css" rel="stylesheet" />
+  <link rel="canonical" href="https://lyon.computer/projects/ionospheric-plasma-anomaly-tracking/" />
+  <meta name="description" content="Demoed an alpha prototype at SDA TAP Lab using SuperDARN radar data to build a virtual sensor grid, exploring the ionosphere as a new sensing layer for detecting space-capable objects." />
+  <meta property="og:site_name" content="Kyle Lyon" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Ionospheric Plasma Anomaly Tracking" />
+  <meta property="og:description" content="Demoed an alpha prototype at SDA TAP Lab using SuperDARN radar data to build a virtual sensor grid, exploring the ionosphere as a new sensing layer for detecting space-capable objects." />
+  <meta property="og:url" content="https://lyon.computer/projects/ionospheric-plasma-anomaly-tracking/" />
+  <meta property="og:image" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ionospheric Plasma Anomaly Tracking" />
+  <meta name="twitter:description" content="Demoed an alpha prototype at SDA TAP Lab using SuperDARN radar data to build a virtual sensor grid, exploring the ionosphere as a new sensing layer for detecting space-capable objects." />
+  <meta name="twitter:url" content="https://lyon.computer/projects/ionospheric-plasma-anomaly-tracking/" />
+  <meta name="twitter:image" content="" />
+</head>
+<body class="post-template computer">
+<header class="container bottom-4">
+  <div class="columns">
+    <div class="column">
+      <div class="navbar">
+        <div class="navbar-section measure-12 measure-8-phone"><h2>Navigation</h2></div>
+        <div class="navbar-section">
+          <h2>
+            <span class="h2-normal">~ / <a class="link" href="/">Home</a> / <a class="link" href="/projects/">Projects</a> / Ionospheric Plasma Anomaly Tracking</span>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container limit-48">
+  
+<article id="post-content">
+  <h1>Ionospheric Plasma Anomaly Tracking</h1>
+  <p>At the SDA TAP Lab in Colorado Springs, I demoed an alpha prototype exploring how SuperDARN radar data can be transformed into a virtual sensor grid, turning the ionosphere itself into a new sensing layer for detecting space-capable objects. As space operations push beyond conventional flight limits, with non-traditional propulsion and exotic orbits increasingly evading legacy sensors, fresh detection methods are essential.</p>
+<p>The prototype software leverages high-frequency data from the SuperDARN radar network. Using overlapping radar coverage, it builds a quad-tree grid where each node acts as a virtual sensor, its fidelity tied to radar density. From the radar’s auto-correlation function (ACF), we extract velocity, power, and spectral width to identify anomalous events, spikes or blips characteristic of space-capable velocities, and stitch them into plausible tracks using kinematic constraints. This first iteration runs on ACF-level data to prove feasibility, with higher fidelity to come from raw machine-level inputs. Next steps include validating candidate tracks against historical TLEs to establish baseline performance, ultimately feeding tracks to the Unified Data Library for unclassified tipping-and-queuing across command-and-control networks. The goal: enable detection of HF radar echoes from hypersonic plasma trails and ionospheric disturbances caused by orbital debris.</p>
+<figure>
+  <img src="/assets/images/projects/ionospheric-plasma-anomaly-detection.gif" alt="Ionospheric Plasma Anomaly Detection Demo" />
+  <figcaption>Ionospheric Plasma Anomaly Detection Demo</figcaption>
+</figure>
+  </article>
+  <p>
+    <a class="top-2 btn bg-dark-green white hover-white hover-bg-black" href="/projects/">← Back to Projects</a>
+  </p>
+
+  </main>
+
+<footer class="top-4 moon-gray">
+  <small>© Copyright 2025, Kyle Lyon. <a href="/acknowledgements/">Acknowledgements</a>.</small>
+</footer>
+</body>
+</html>
+
+

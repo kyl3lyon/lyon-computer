@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{{ title or site.name }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link href="/assets/css/lyon-wds.min.css" rel="stylesheet" />
+  <link href="/assets/css/computer.css" rel="stylesheet" />
+  <link rel="canonical" href="{{ canonical or (site.url + page.url) }}" />
+  <meta name="description" content="{{ description or site.description }}" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+  <meta property="og:type" content="{{ og_type or 'article' }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description or site.description }}" />
+  <meta property="og:url" content="{{ site.url + page.url }}" />
+  <meta property="og:image" content="{{ og_image or '' }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description or site.description }}" />
+  <meta name="twitter:url" content="{{ site.url + page.url }}" />
+  <meta name="twitter:image" content="{{ og_image or '' }}" />
+</head>
+<body class="{{ body_class or '' }} computer">
+<header class="container bottom-4">
+  <div class="columns">
+    <div class="column">
+      <div class="navbar">
+        <div class="navbar-section measure-12 measure-8-phone"><h2>Navigation</h2></div>
+        <div class="navbar-section">
+          <h2>
+            <span class="h2-normal">~ / <a class="link" href="/">Home</a>{% if crumb %} / {{ crumb | safe }}{% endif %}</span>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="{{ main_class or 'container limit-48' }}">
+  {% block content %}
+    {{ content | safe }}
+  {% endblock %}
+  </main>
+
+<footer class="top-4 moon-gray">
+  <small>© Copyright {{ build.year }}, {{ site.name }}. <a href="/acknowledgements/">Acknowledgements</a>.</small>
+</footer>
+</body>
+</html>
+
+

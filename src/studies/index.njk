@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+title: Kyle Lyon / Studies
+crumb: Studies
+---
+<div class="columns bottom-2">
+  <div class="column">
+    <h2>Studies</h2>
+    <div>
+      <table class="table">
+        <thead><tr><th class="measure-12">Date</th><th>Title</th></tr></thead>
+        <tbody>
+          {% if collections.studies | length %}
+            {% for item in collections.studies %}
+            <tr>
+              <td><time datetime="{{ item.date | date('yyyy-MM-dd') }}">{{ item.date | date('yyyy-MM-dd') }}</time></td>
+              <td><a href="{{ item.url }}">{{ item.data.title }}</a></td>
+            </tr>
+            {% endfor %}
+          {% else %}
+            <tr><td colspan="2">No items found.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<p class="container"><a class="top-2 btn bg-dark-green white hover-white hover-bg-black" href="/">← Back to Home</a></p>
+
+
