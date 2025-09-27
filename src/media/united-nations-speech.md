@@ -1,5 +1,5 @@
 ---
-title: "United Nations Speech"
+title: "AI and the Future of Entrepreneurship"
 description: "Spoke at the United Nations on how AI can empower micro, small, and medium enterprises to streamline operations, unlock insights, and drive innovation for global economic growth."
 date: 2023-06-30
 type: media
