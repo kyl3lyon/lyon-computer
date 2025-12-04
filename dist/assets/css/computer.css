@@ -181,6 +181,12 @@ hr {
     width: auto;
 }
 
+/* CUSTOM: First column fixed width, uniform across all tables */
+.table-compact-labels td:first-child {
+    width: 10em;
+    padding-right: 1.7em;
+}
+
 /* CUSTOM: Constrains table width to 70% of container */
 .table-auto-wide {
     max-width: 70%;
@@ -388,6 +394,7 @@ p.compact-line {
 .measure-4 {width: 4em; max-width: 4em;}
 .measure-6 {width: 6em; max-width: 6em;}
 .measure-8 {width: 8em; max-width: 8em;}
+.measure-10 {width: 10em; max-width: 10em;}
 .measure-12 {width: 12em; max-width: 12em;}
 .measure-16 {width: 16em; max-width: 16em;}
 .measure-24 {width: 24em; max-width: 24em;}
