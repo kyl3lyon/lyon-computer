@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
+    <loc>https://lyon.computer/projects/purple/</loc>
+    <lastmod>2025-11-30</lastmod>
+  </url>
+
+  <url>
     <loc>https://lyon.computer/projects/ionospheric-plasma-anomaly-tracking/</loc>
     <lastmod>2025-07-18</lastmod>
   </url>
